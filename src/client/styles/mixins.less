@@ -1,3 +1,29 @@
+@import './variables';
+
+#center(@x: 0, @y: 0) when (@x = true) and (@y = 0) {
+  left: 50%;
+  transform: translateX(-50%);
+}
+#center(@x: 0, @y: 0) when (@y = true) and (@x = 0) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+#center(@x: 0, @y: 0) when (@x = 0) and (@y = 0) {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+#center(@x: 0, @y: 0) {
+  position: absolute;
+}
+
+#full-width() {
+  display: block;
+  width: 100%;
+}
+
 #button-primary() {
+  background-color: @color-primary;
   padding: 8px;
+  text-align: center;
 }

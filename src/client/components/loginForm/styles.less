@@ -1,9 +1,26 @@
 @import '../../styles/mixins';
+@import '../../styles/variables';
 
 :host {
+  #center();
+  padding: @padding-medium;
+  box-shadow: @shadow-medium;
 
-  button {
+  input {
+    #full-width();
+  }
+
+  button.login {
+    #full-width();
     #button-primary();
+  }
+
+  button.register-toggle {
+    #full-width();
+    text-align: center;
+    font-family: @font-primary;
+    border: none;
+    background: none;
   }
 
 }
