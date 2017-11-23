@@ -2,13 +2,14 @@ import { h } from 'hyperapp';
 
 import * as styles from './styles.less';
 
-export const LoginForm = ({ state, actions }) => (
+export const LoginForm = ({ state, actions, setUser }) => (
   <div {...styles}>
+    <div className={state.error ? 'error' : 'hidden'}>{state.error}</div>
     <div className="form">
       <input placeholder="username" value={state.username} oninput={e => actions.setUsername(e.target.value)} />
       <input placeholder="password" value={state.password} oninput={e => actions.setPassword(e.target.value)} />
     </div>
-    <button className="login" onclick={actions.login}>
+    <button className="login" onclick={() => actions.login(setUser)}>
       {state.isRegister ? 'Register' : 'Log in'}
     </button>
     <button className="register-toggle" onclick={actions.toggleRegister}>

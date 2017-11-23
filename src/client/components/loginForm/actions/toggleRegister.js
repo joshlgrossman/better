@@ -1,4 +1,4 @@
-export const toggleRegister = (state, actions) => ({
+export const toggleRegister = state => ({
   ...state,
   isRegister: !state.isRegister
 });

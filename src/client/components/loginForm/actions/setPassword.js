@@ -1,4 +1,1 @@
-export const setPassword = (state, actions) => value => ({
-  ...state,
-  password: value
-});
+export const setPassword = state => password => ({ ...state, password });

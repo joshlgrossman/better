@@ -26,4 +26,17 @@
   background-color: @color-primary;
   padding: 8px;
   text-align: center;
+  color: white;
+  font-size: 1rem;
+}
+
+#input() {
+  border: 1px solid @grey;
+  padding: 6px;
+  font-size: 1rem;
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 6px fade(@blue, 30%);
+  }
 }

@@ -3,16 +3,19 @@
 
 :host {
   #center();
-  padding: @padding-medium;
-  box-shadow: @shadow-medium;
+  padding: @padding-large;
+  box-shadow: @shadow-large;
 
   input {
     #full-width();
+    #input();
+    margin-bottom: @padding-medium;
   }
 
   button.login {
     #full-width();
     #button-primary();
+    margin-bottom: @padding-medium;
   }
 
   button.register-toggle {
