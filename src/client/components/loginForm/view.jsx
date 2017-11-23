@@ -1,6 +1,6 @@
 import { h } from 'hyperapp';
 
-import styles from './LoginForm.less';
+import styles from './styles.less';
 
 export const LoginForm = ({ state, actions }) => (
   <div {...styles}>
