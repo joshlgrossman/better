@@ -13,7 +13,8 @@ module.exports = grunt => {
       options: {
         webpack: webpack.dev,
         progress: false,
-        port: 8000
+        port: 8000,
+        historyApiFallback: true
       },
       default: {
         keepalive: true

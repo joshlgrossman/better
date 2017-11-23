@@ -24,10 +24,17 @@
 
 #button-primary() {
   background-color: @color-primary;
+  border: 1px solid darken(@color-primary, 10%);
   padding: 8px;
   text-align: center;
   color: white;
   font-size: 1rem;
+  transition: background-color @speed, border @speed;
+
+  &.disabled {
+    background-color: @lightgrey;
+    border: 1px solid darken(@lightgrey, 10%);
+  }
 }
 
 #input() {

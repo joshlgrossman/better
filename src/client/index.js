@@ -2,10 +2,11 @@ import { app } from 'hyperapp';
 
 import { state } from './state';
 import { actions } from './actions';
-import { view } from './view';
+import { routes } from './view';
+import { router } from './router';
 
-app({
+app(router({
   state,
   actions,
-  view
-});
+  routes
+}));
