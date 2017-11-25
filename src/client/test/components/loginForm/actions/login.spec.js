@@ -15,7 +15,8 @@ describe('client.components.loginForm.actions.login', () => {
       setError: stub()
     };
     effects = {
-      setUser: stub()
+      setUser: stub(),
+      setLocation: stub()
     };
     moxios.install();
   });
@@ -25,7 +26,7 @@ describe('client.components.loginForm.actions.login', () => {
   });
 
   describe('when successful', () => {
-    it('should set the user', done => {
+    it('should set the user and location', done => {
       const data = { username: 'test', password: 'pw' };
       login(data, actions)(effects);
 
@@ -40,6 +41,7 @@ describe('client.components.loginForm.actions.login', () => {
             }
           });
 
+          expect(effects.setLocation).to.have.been.calledWith('home');
           expect(effects.setUser).to.have.been.calledWith(
             match.has('data', {
               it: 'worked'

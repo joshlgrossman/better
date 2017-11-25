@@ -1,3 +1,1 @@
-export const user = {
-  name: ''
-};
+export let name = '';

@@ -1,8 +1,8 @@
 import * as LoginForm from '../components/loginForm/state';
-
-import { user } from './user';
+import * as user from './user';
 
 export const state = {
+  location: 'login',
   user,
   LoginForm
 };
