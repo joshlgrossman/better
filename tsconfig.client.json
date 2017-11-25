@@ -1,25 +1,11 @@
 {
 
+  "extends": "./tsconfig.json",
+
   "compilerOptions": {
-    "allowJs": true,
-    "lib": ["es6", "dom"],
-    "types": ["reflect-metadata", "css-modules"],
-    "importHelpers": true,
     "module": "es2015",
     "target": "es2015",
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "noImplicitAny": false,
-    "noUnusedLocals": true,
-    "noUnusedParameters": false,
-    "noImplicitReturns": true,
-    "removeComments": true,
-    "sourceMap": false,
-    "downlevelIteration": true,
-    "rootDir": "./src/client",
-    "jsx": "react",
-    "jsxFactory": "h"
+    "rootDir": "./src/client"
   },
 
   "include": [
