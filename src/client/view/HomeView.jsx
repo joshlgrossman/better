@@ -4,6 +4,6 @@ import { Header } from '../components/header/view';
 
 export const HomeView = (state, actions) => (
   <div>
-    <Header state={{ user: state.user }} />
+    <Header state={state.user} />
   </div>
 );

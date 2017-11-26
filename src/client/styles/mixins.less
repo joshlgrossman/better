@@ -62,3 +62,21 @@
     box-shadow: 0 0 6px fade(@blue, 30%);
   }
 }
+
+#currency(@scale: 1) {
+  &::after {
+    display: inline-block;
+    border: 2px solid darken(@yellow, 25%);
+    color: darken(@yellow, 25%);
+    border-radius: 100%;
+    background-color: @yellow;
+    font-size: 8px * @scale;
+    width: 6px * @scale;
+    height: 6px * @scale;
+    padding: 2px * @scale;
+    margin-left: 2px * @scale;
+    line-height: (8px * @scale) - 1;
+    vertical-align: middle;
+    content: 'C';
+  }
+}
