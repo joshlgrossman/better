@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { setUsername } from '../../../../components/loginForm/actions/setUsername';
+import { setUsername } from '../../../../../src/client/components/loginForm/actions/setUsername';
 
 describe('client.components.loginForm.actions.setUsername', () => {
   let state;

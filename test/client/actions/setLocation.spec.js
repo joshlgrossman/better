@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { setLocation } from '../../actions/setLocation';
+import { setLocation } from '../../../src/client/actions/setLocation';
 
 describe('client.actions.setLocation', () => {
   let state;

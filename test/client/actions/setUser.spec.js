@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { setUser } from '../../actions/setUser';
+import { setUser } from '../../../src/client/actions/setUser';
 
 describe('client.actions.setUser', () => {
   let state;

@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { setPassword } from '../../../../components/loginForm/actions/setPassword';
+import { setPassword } from '../../../../../src/client/components/loginForm/actions/setPassword';
 
 describe('client.components.loginForm.actions.setPassword', () => {
   let state;
