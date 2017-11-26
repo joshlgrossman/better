@@ -1,9 +1,9 @@
 import { h } from 'hyperapp';
 
-import { StatusBar } from '../components/statusBar/view';
+import { Header } from '../components/header/view';
 
 export const HomeView = (state, actions) => (
   <div>
-    <StatusBar state={{ user: state.user }} />
+    <Header state={{ user: state.user }} />
   </div>
 );

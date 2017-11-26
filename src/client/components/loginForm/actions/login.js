@@ -1,7 +1,7 @@
-import { post } from 'axios';
+import { loginUser } from '../../../utils/loginUser';
 
 export const login = ({ username, password }, actions) => effects =>
-  post('https://jsonplaceholder.typicode.com/post', { username, password })
+  loginUser({ username, password })
     .then(effects.setUser)
     .then(() => effects.setLocation('home'))
     .catch(actions.setError);
