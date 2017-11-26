@@ -1,13 +1,28 @@
 import { h } from 'hyperapp';
 
+import { TitleBar } from '../titleBar/view';
+import { UserProfile } from '../userProfile/view';
+
 import * as styles from './styles.less';
 
-export const Header = ({ state, actions }) => (
+export const Header = ({ state, actions, input }) => (
   <div {...styles}>
-    <div className="title">better</div>
-    <div className="user-info">
-      <div className="credits">{state.credits}</div>
-      <div className="user">{state.name}</div>
-    </div>
+    <TitleBar
+      effects={{
+        toggleExpanded: actions.toggleExpanded
+      }}
+      input={{
+        user: input.user
+      }}
+    />
+    <UserProfile
+      effects={{
+        toggleExpanded: actions.toggleExpanded
+      }}
+      input={{
+        user: input.user,
+        isExpanded: state.isExpanded
+      }}
+    />
   </div>
 );

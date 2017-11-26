@@ -1,0 +1,33 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+:host {
+  overflow: hidden;
+  position: relative;
+  flex-grow: 2;
+
+  .wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 100%;
+    right: 0;
+    overflow: hidden;
+    transition: bottom @transition;    
+    background-color: white;
+
+    &.visible {
+      bottom: 0;
+    }
+  }
+
+  .content {
+    min-width: 200px;
+    padding: @padding-small;
+    
+    button.logout {
+      #button-primary();
+    }
+
+  }
+
+}
