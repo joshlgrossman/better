@@ -3,11 +3,16 @@
 
 :host {
   #center();
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   padding: @padding-large;
   box-shadow: @shadow-large;
   background-color: white;
   border-radius: @border-radius;
   border-bottom: 1px solid @lightgrey;
+  min-width: 300px;
+  min-height: 300px;
 
   input {
     #full-width();
@@ -27,6 +32,7 @@
     font-family: @font-primary;
     border: none;
     background: none;
+    font-size: 0.8rem;
 
     &:hover {
       text-decoration: underline;

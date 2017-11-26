@@ -26,12 +26,17 @@
   background-color: @color-primary;
   border: none;
   border-bottom: 1px solid darken(@color-primary, 25%);
+  border-radius: @border-radius;
+  box-shadow: @shadow-small;
   padding: 8px;
   text-align: center;
   color: white;
   font-size: 1rem;
-
-  transition: background-color @transition, border @transition;
+  
+  transition: 
+    background-color @transition, 
+    border @transition,
+    box-shadow @transition;
 
   &:hover {
     background-color: lighten(@color-primary, 10%);
@@ -42,11 +47,13 @@
     background-color: @lightgrey;
     border-bottom: 1px solid darken(@lightgrey, 25%);
     cursor: default;
+    box-shadow: none;
   }
 }
 
 #input() {
   border: 1px solid @grey;
+  border-radius: @border-radius;
   padding: 6px;
   font-size: 1rem;
 

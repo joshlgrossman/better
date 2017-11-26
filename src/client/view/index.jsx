@@ -1,5 +1,7 @@
 import { h } from 'hyperapp';
 
+import * as styles from '../styles/global.less';
+
 import { LoginView } from './LoginView';
 import { HomeView } from './HomeView';
 
@@ -8,4 +10,4 @@ const views = {
   home: HomeView
 };
 
-export const view = (state, actions) => views[state.location](state, actions);
+export const view = (state, actions) => <div {...styles}>{views[state.location](state, actions)}</div>;
