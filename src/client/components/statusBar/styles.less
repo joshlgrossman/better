@@ -1,0 +1,27 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+:host {
+  position: fixed;
+  left: 0;
+  right: 0;
+  min-height: 50px;
+  background-color: @color-primary;
+  padding: @padding-medium;
+  border-bottom: 1px solid darken(@color-primary, 25%);
+  color: white;
+  box-shadow: @shadow-medium;
+  font-family: @font-primary;
+
+  .title {
+    #center(@y: true);
+    left: @padding-medium;
+    font-size: 2rem;
+  }
+
+  .user {
+    #center(@y: true);
+    right: @padding-medium;
+    font-size: 1rem;
+  }
+}

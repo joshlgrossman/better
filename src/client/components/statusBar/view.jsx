@@ -1,3 +1,10 @@
 import { h } from 'hyperapp';
 
-export const StatusBar = ({ state, actions }) => <div>{state.user.name}</div>;
+import * as styles from './styles.less';
+
+export const StatusBar = ({ state, actions }) => (
+  <div {...styles}>
+    <div className="title">Better</div>
+    <div className="user">{state.user.name}</div>
+  </div>
+);
