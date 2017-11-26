@@ -71,7 +71,8 @@ const config = {
     }),
     new HtmlWebpackPlugin({
       title: _(package.name).split('-').map(_.capitalize).join(' '),
-      minify: { collapseWhitespace: true }
+      minify: { collapseWhitespace: true },
+      template: './src/client/index.html'
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: ['index', 'polyfills']
