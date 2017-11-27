@@ -9,12 +9,16 @@ export const UserProfile = ({ state, actions, input }) => (
         {input.user.messages &&
           input.user.messages.map(message => (
             <div className="message">
-              <div className="from">{message.from}</div>
-              <div className="to">{message.to}</div>
-              <div className="body">{message.content}</div>
+              <div className="message-details">
+                <div className="from">From: {message.from === input.user.name ? 'You' : message.from}</div>
+                <div className="to">To: {message.to === input.user.name ? 'You' : message.to}</div>
+              </div>
+              <div className="body">{message.body}</div>
             </div>
           ))}
-        <button className="logout">Log out</button>
+        <div className="controls">
+          <button className="logout">Log out</button>
+        </div>
       </div>
     </div>
   </div>
