@@ -43,10 +43,10 @@
       }
     }
 
-
     .message {
       border-bottom: 1px solid @almost-white;
       box-shadow: @shadow-small;
+      border-radius: @border-radius;
 
       .message-details {
         display: flex;
@@ -55,11 +55,18 @@
         border-bottom: 1px solid @lightgrey;
         padding: @padding-small;
         color: @grey;
+        border-top-right-radius: @border-radius;
+        border-top-left-radius: @border-radius;
+        font-size: 0.75rem;
       }
 
       .body {
         padding: @padding-medium;
         color: @almost-black;
+      }
+
+      & + .message {
+        margin-top: @padding-medium;
       }
     }
 

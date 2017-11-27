@@ -12,7 +12,8 @@ export const Header = ({ state, actions, input }) => (
         toggleExpanded: actions.toggleExpanded
       }}
       input={{
-        user: input.user
+        user: input.user,
+        isExpanded: state.isExpanded
       }}
     />
     <UserProfile

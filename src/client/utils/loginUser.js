@@ -10,6 +10,11 @@ export function loginUser({ username, password }) {
         from: 'Someone',
         to: 'Josh',
         body: 'hello'
+      },
+      {
+        from: 'Josh',
+        to: 'Jarrod',
+        body: 'what do you think so far?'
       }
     ]
   });
