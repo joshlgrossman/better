@@ -28,9 +28,7 @@
     "valid-typeof": 2,
 
     "no-template-curly-in-string": 1,
-    "no-unused-vars": 1,
     "no-var": 1,
-    "prefer-const": 1,
     "eqeqeq": 1,
     "no-floating-decimal": 1,
     "no-unmodified-loop-condition": 1,
