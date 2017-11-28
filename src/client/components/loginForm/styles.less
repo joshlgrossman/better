@@ -14,6 +14,18 @@
   min-width: 300px;
   min-height: 300px;
 
+  &::after {
+    content: 'better';
+    font-family: @font-logo;
+    font-size: 1.5rem;
+    color: fade(@blue, 25%);
+    margin-bottom: @padding-small;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    text-shadow: 0 0 4px fade(@blue, 10%);
+  }
+
   input {
     #full-width();
     #input();

@@ -7,7 +7,7 @@ export const LoginForm = ({ state, actions, effects }) => (
     <div className={state.error ? 'error' : 'hidden'}>{state.error}</div>
     <div className="form">
       <input placeholder="username" value={state.username} oninput={e => actions.setUsername(e.target.value)} />
-      <input placeholder="password" value={state.password} oninput={e => actions.setPassword(e.target.value)} />
+      <input placeholder="password" type="password" value={state.password} oninput={e => actions.setPassword(e.target.value)} />
     </div>
     <button className="login" disabled={!state.username || !state.password} onclick={() => actions.login(effects)}>
       {state.isRegister ? 'Register' : 'Log in'}
