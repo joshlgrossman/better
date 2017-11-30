@@ -21,8 +21,7 @@ const config = {
     index: `./src/client/index.${fileType}`,
     polyfills: [
       'tslib',
-      'core-js/library/es6',
-      'reflect-metadata'
+      'core-js/library/es6'
     ]
   },
   output: {
