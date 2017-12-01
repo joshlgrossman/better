@@ -16,6 +16,6 @@ flow(map(values), flatten, each(i => container.bind(i).toSelf()))([
 ]);
 
 useContainer(container);
-createExpressServer({ controllers: Object.values(controllers) })
+createExpressServer({ controllers: values(controllers) })
   .use('/', static(join(__dirname, '../../dist/client')))
   .listen(8080);
