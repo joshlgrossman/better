@@ -1,3 +1,5 @@
 node_modules/
 src/
 .tscache/
+src/server/config.js
+dist/server/config.js

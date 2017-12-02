@@ -1,4 +1,6 @@
 node_modules/
 dist/
 .tscache/
-.DS_Store
+.DS_Store/
+src/server/config.js
+dist/server/config.js
