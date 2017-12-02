@@ -13,7 +13,9 @@ describe('server.controllers.UserController', () => {
   beforeEach(() => {
     userService = {
       list: stub().returns('list test'),
-      get: stub().returns('get test')
+      get: stub().returns('get test'),
+      register: stub().returns('register test'),
+      login: stub().returns('login test')
     }
 
     controller = new UserController(userService);
@@ -40,6 +42,30 @@ describe('server.controllers.UserController', () => {
     it('should return the results', () => {
       const resp = controller.list();
       expect(resp).to.equal('list test');
+    });
+  });
+
+  describe('when registering a new user', () => {
+    it('should register the user', () => {
+      controller.register({ username: 'hello', password: 'world' });
+      expect(userService.register).to.have.been.calledWith('hello', 'world');
+    });
+
+    it('should return the results', () => {
+      const resp = controller.register({ username: 'hello', password: 'world' });
+      expect(resp).to.equal('register test');
+    });
+  });
+
+  describe('when logging in a user', () => {
+    it('should attempt to login the user', () => {
+      controller.login({ username: 'hello' }, { password: 'world' });
+      expect(userService.login).to.have.been.calledWith('hello', 'world');
+    });
+
+    it('should return the results', () => {
+      const resp = controller.login({ username: 'hello' }, { password: 'world' });
+      expect(resp).to.equal('login test');
     });
   });
 
