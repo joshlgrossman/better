@@ -11,8 +11,6 @@ import * as controllers from './controllers';
 import * as services from './services';
 import * as config from './config';
 
-import { UserModel } from './models/UserModel';
-
 const container = new Container();
 flow(map(values), flatten, each(i => container.bind(i).toSelf()))([controllers, services]);
 
