@@ -1,1 +1,1 @@
-export * from './TestController';
+export * from './UserController';
