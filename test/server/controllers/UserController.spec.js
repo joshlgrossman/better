@@ -12,8 +12,8 @@ describe('server.controllers.UserController', () => {
 
   beforeEach(() => {
     userService = {
-      list: stub(),
-      get: stub()
+      list: stub().returns('list test'),
+      get: stub().returns('get test')
     }
 
     controller = new UserController(userService);
@@ -24,12 +24,22 @@ describe('server.controllers.UserController', () => {
       controller.get({ username: 'test' });
       expect(userService.get).to.have.been.calledWith('test');
     });
+
+    it('should return the results', () => {
+      const resp = controller.get({ username: 'test' });
+      expect(resp).to.equal('get test');
+    });
   });
 
   describe('when listing all users', () => {
     it('should get all users', () => {
-      controller.list();
+      const resp = controller.list();
       expect(userService.list).to.have.been.called;
+    });
+
+    it('should return the results', () => {
+      const resp = controller.list();
+      expect(resp).to.equal('list test');
     });
   });
 
