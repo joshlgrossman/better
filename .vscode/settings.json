@@ -1,6 +1,7 @@
 {
   "cSpell.ignoreWords": [
     "inversify",
-    "injectable"
+    "injectable",
+    "moxios"
   ]
 }
