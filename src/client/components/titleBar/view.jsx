@@ -8,7 +8,7 @@ export const TitleBar = ({ input, effects }) => (
     <div className="user-info">
       <div className="credits">{input.user.credits}</div>
       <div className="user" onclick={effects.toggleExpanded}>
-        {input.isExpanded ? 'close' : input.user.name}
+        {input.isExpanded ? 'close' : input.user.username}
       </div>
     </div>
   </div>

@@ -11,8 +11,8 @@ export const UserProfile = ({ input, effects }) => (
             input.user.messages.map(message => (
               <div className="message">
                 <div className="message-details">
-                  <div className="from">From: {message.from === input.user.name ? 'You' : message.from}</div>
-                  <div className="to">To: {message.to === input.user.name ? 'You' : message.to}</div>
+                  <div className="from">From: {message.from === input.user.username ? 'You' : message.from}</div>
+                  <div className="to">To: {message.to === input.user.username ? 'You' : message.to}</div>
                 </div>
                 <div className="body">{message.body}</div>
               </div>
