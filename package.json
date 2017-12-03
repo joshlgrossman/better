@@ -12,7 +12,8 @@
     "build:client": "node ./node_modules/.bin/grunt build:client",
     "start:client": "node ./node_modules/.bin/grunt start:client",
     "build:server": "node ./node_modules/.bin/grunt build:server",
-    "start:server": "npm run build:server && node ."
+    "start:server": "npm run build:server && node .",
+    "start": "npm run build:client && npm run start:server"
   },
   "dependencies": {
     "@hyperapp/logger": "^0.3.0",
