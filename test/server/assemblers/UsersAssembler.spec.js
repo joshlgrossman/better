@@ -1,0 +1,28 @@
+import { expect } from 'chai';
+import { UsersAssembler } from '../../../src/server/assemblers';
+
+describe('server.assemblers.UsersAssembler', () => {
+
+  let assembler;
+
+  beforeEach(() => {
+    assembler = new UsersAssembler();
+  });
+
+  describe('when assembling a user', () => {
+    it('should only return relevant fields', () => {
+      const result = assembler.assemble({
+        username: 'hello',
+        password: 'world',
+        credits: 10,
+        somethingElse: 'blah'
+      });
+
+      expect(result).to.deep.equal({
+        username: 'hello',
+        credits: 10
+      });
+    });
+  });
+
+});
