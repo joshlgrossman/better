@@ -15,12 +15,14 @@ describe('server.assemblers.UsersAssembler', () => {
         username: 'hello',
         password: 'world',
         credits: 10,
+        messages: [],
         somethingElse: 'blah'
       });
 
       expect(result).to.deep.equal({
         username: 'hello',
-        credits: 10
+        credits: 10,
+        messages: []
       });
     });
   });
