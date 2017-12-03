@@ -3,7 +3,7 @@ import { injectable } from 'inversify';
 import { User } from '../models/User';
 
 @injectable()
-export class UserService {
+export class UsersService {
   async login(username, password) {
     try {
       const user = await User.model.findOne({ username });
