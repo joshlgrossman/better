@@ -1,6 +1,6 @@
 import { injectable } from 'inversify';
 
-import { User } from '../models/User';
+import { User } from '../models';
 
 @injectable()
 export class UsersService {
@@ -25,7 +25,7 @@ export class UsersService {
 
   async list() {
     try {
-      return await User.model.find({});
+      return await User.model.find();
     } catch {
       return null;
     }
@@ -33,7 +33,7 @@ export class UsersService {
 
   async get(username) {
     try {
-      return await User.model.find({ username });
+      return await User.model.findOne({ username });
     } catch {
       return null;
     }
