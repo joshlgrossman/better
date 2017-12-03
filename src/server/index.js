@@ -9,10 +9,11 @@ import * as mongoose from 'mongoose';
 
 import * as controllers from './controllers';
 import * as services from './services';
+import * as assemblers from './assemblers';
 import * as config from './config';
 
 const container = new Container();
-flow(map(values), flatten, each(i => container.bind(i).toSelf()))([controllers, services]);
+flow(map(values), flatten, each(i => container.bind(i).toSelf()))([controllers, services, assemblers]);
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.mongoDb, { useMongoClient: true });

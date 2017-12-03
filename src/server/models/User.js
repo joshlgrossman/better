@@ -4,7 +4,11 @@ import { Hook, Model } from './decorators';
 
 @Model({
   username: String,
-  password: String
+  password: String,
+  credits: {
+    type: Number,
+    default: 0
+  }
 })
 export class User {
   @Hook('pre', 'save')

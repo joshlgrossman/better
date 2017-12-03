@@ -17,9 +17,9 @@ export class UsersService {
     try {
       const newUser = new User.model({ username, password });
       await newUser.save();
-      return true;
+      return newUser;
     } catch {
-      return false;
+      return null;
     }
   }
 
