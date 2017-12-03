@@ -3,12 +3,10 @@ import { hash, compare } from 'bcrypt';
 import { Hook, Model } from './decorators';
 
 @Model({
-  username: String,
-  password: String,
-  credits: {
-    type: Number,
-    default: 0
-  }
+  username: { type: String, required: true },
+  password: { type: String, required: true },
+  credits: { type: Number, default: 0 },
+  messages: { type: [Object], default: [] }
 })
 export class User {
   @Hook('pre', 'save')
@@ -18,11 +16,13 @@ export class User {
     try {
       this.password = await hash(this.password, 10);
     } catch {}
+
+    next();
   }
 
   async authenticate(password) {
     try {
-      return await compare(this.password, password);
+      return await compare(password, this.password);
     } catch {
       return false;
     }

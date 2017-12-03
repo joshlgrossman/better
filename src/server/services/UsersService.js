@@ -15,10 +15,8 @@ export class UsersService {
 
   async register(username, password) {
     try {
-      const newUser = new User.model({ username, password });
-      await newUser.save();
-      return newUser;
-    } catch {
+      return await User.model.create({ username, password });
+    } catch (e) {
       return null;
     }
   }
