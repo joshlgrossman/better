@@ -1,12 +1,13 @@
 import { hash, compare } from 'bcrypt';
 
 import { Hook, Model } from './decorators';
+import { Message } from './Message';
 
 @Model({
   username: { type: String, required: true },
   password: { type: String, required: true },
   credits: { type: Number, default: 0 },
-  messages: { type: [Object], default: [] }
+  messages: { type: [Message.schema], required: false }
 })
 export class User {
   @Hook('pre', 'save')

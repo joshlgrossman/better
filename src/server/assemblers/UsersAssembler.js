@@ -5,7 +5,8 @@ export class UsersAssembler {
   assemble(user) {
     return {
       username: user.username,
-      credits: user.credits
+      credits: user.credits,
+      messages: user.messages
     };
   }
 }
