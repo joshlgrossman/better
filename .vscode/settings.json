@@ -2,6 +2,8 @@
   "cSpell.ignoreWords": [
     "inversify",
     "injectable",
-    "moxios"
+    "moxios",
+    "minlength",
+    "maxlength"
   ]
 }
