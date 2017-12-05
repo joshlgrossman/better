@@ -1,21 +1,40 @@
 import { injectable } from 'inversify';
+import { promisify } from 'util';
+import * as jwt from 'jsonwebtoken';
 
+import { jwtSecret } from '../config';
 import { User } from '../models';
+
+const sign = promisify(jwt.sign);
 
 @injectable()
 export class UsersService {
   async login(username, password) {
     try {
       const user = await User.model.findOne({ username });
-      return (await user.authenticate(password)) ? user : null;
-    } catch {
-      return null;
-    }
+
+      if (await user.authenticate(password)) {
+        const token = await sign(user.username, jwtSecret);
+
+        return {
+          ...user,
+          token
+        };
+      }
+    } catch {}
+
+    return null;
   }
 
   async register(username, password) {
     try {
-      return await User.model.create({ username, password });
+      const user = await User.model.create({ username, password });
+      const token = await sign(user.username, jwtSecret);
+
+      return {
+        ...user,
+        token
+      };
     } catch (e) {
       return null;
     }
@@ -25,7 +44,7 @@ export class UsersService {
     try {
       return await User.model.find();
     } catch {
-      return null;
+      return [];
     }
   }
 
