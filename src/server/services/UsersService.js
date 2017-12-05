@@ -35,7 +35,7 @@ export class UsersService {
         ...user,
         token
       };
-    } catch (e) {
+    } catch {
       return null;
     }
   }
