@@ -27,6 +27,7 @@
     "font-awesome": "^4.7.0",
     "hyperapp": "^0.16.0",
     "inversify": "^4.3.0",
+    "jsonwebtoken": "^8.1.0",
     "lodash": "^4.17.4",
     "monet": "^0.8.10",
     "mongoose": "^4.13.5",
