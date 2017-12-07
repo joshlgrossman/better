@@ -20,7 +20,7 @@ describe('client.services.users.register', () => {
       moxios.wait(() => {
         const req = moxios.requests.mostRecent();
         
-        expect(req.config.url).to.equal('/users');
+        expect(req.config.url).to.equal('/users/new');
         expect(JSON.parse(req.config.data)).to.deep.equal(data);
 
         done();

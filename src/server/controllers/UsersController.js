@@ -24,7 +24,7 @@ export class UsersController {
     return users.map(user => this.usersAssembler.assemble(user));
   }
 
-  @Post('/users')
+  @Post('/users/new')
   async register(@Body() body) {
     const user = await this.usersService.register(body.username, body.password);
     return this.usersAssembler.assemble(user);
