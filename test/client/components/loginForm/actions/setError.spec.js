@@ -6,7 +6,7 @@ describe('client.components.loginForm.actions.setError', () => {
 
   beforeEach(() => {
     state = {
-      error: null,
+      errors: [],
       something: 'else'
     };
   });
@@ -14,7 +14,7 @@ describe('client.components.loginForm.actions.setError', () => {
   it('should set the error', () => {
     const result = setError(state)('test');
     expect(result).to.deep.equal({
-      error: 'test',
+      errors: ['test'],
       something: 'else'
     });
   });
