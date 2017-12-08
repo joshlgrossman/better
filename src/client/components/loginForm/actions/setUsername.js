@@ -1,1 +1,8 @@
-export const setUsername = state => username => ({ ...state, username });
+export const setUsername = (state, actions) => username =>
+  actions.validateForm({
+    ...state,
+    data: {
+      ...state.data,
+      username
+    }
+  });
