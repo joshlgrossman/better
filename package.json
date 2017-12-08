@@ -8,6 +8,8 @@
   "license": "ISC",
   "scripts": {
     "test": "node ./node_modules/.bin/grunt test",
+    "test:client": "node ./node_modules/.bin/grunt test:client",
+    "test:server": "node ./node_modules/.bin/grunt test:server",
     "build": "node ./node_modules/.bin/grunt build",
     "build:client": "node ./node_modules/.bin/grunt build:client",
     "start:client": "node ./node_modules/.bin/grunt start:client",
