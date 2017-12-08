@@ -1,10 +1,19 @@
-import { expect } from 'chai';
+import { expect, use } from 'chai';
+import { stub } from 'sinon';
+import * as sinonChai from 'sinon-chai';
 import { setUsername } from '../../../../../src/client/components/loginForm/actions/setUsername';
+
+use(sinonChai);
 
 describe('client.components.loginForm.actions.setUsername', () => {
   let state;
+  let actions;
 
   beforeEach(() => {
+    actions = {
+      validate: stub().returnsArg(0)
+    };
+
     state = {
       data: {
         username: null
@@ -14,7 +23,7 @@ describe('client.components.loginForm.actions.setUsername', () => {
   });
 
   it('should set the username', () => {
-    const result = setUsername(state, { validateForm: a => a })('test');
+    const result = setUsername(state, actions)('test');
     expect(result).to.deep.equal({
       data: {
         username: 'test'

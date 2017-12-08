@@ -1,5 +1,5 @@
 export const setPassword = (state, actions) => password =>
-  actions.validateForm({
+  actions.validate({
     ...state,
     data: {
       ...state.data,

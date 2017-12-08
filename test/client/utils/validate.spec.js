@@ -1,7 +1,7 @@
 import { expect, use } from 'chai';
 import { stub, match } from 'sinon';
 import * as sinonChai from 'sinon-chai';
-import { validate } from '../../../src/client/utils';
+import { validateForm } from '../../../src/client/utils';
 
 use(sinonChai);
 
@@ -31,7 +31,7 @@ describe('client.utils.validate', () => {
       }
     };
 
-    validator = validate(schema)();
+    validator = validateForm(schema)();
   });
 
   describe('when field is pristine', () => {

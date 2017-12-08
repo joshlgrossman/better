@@ -1,5 +1,5 @@
 export const setUsername = (state, actions) => username =>
-  actions.validateForm({
+  actions.validate({
     ...state,
     data: {
       ...state.data,
