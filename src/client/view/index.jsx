@@ -10,4 +10,8 @@ const views = {
   home: HomeView
 };
 
-export const view = (state, actions) => <div {...styles}>{views[state.location](state, actions)}</div>;
+export const view = (state, actions) => (
+  <div {...styles}>
+    {views[state.location](state, actions)}
+  </div>
+);
