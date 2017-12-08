@@ -1,7 +1,7 @@
 import { expect, use } from 'chai';
 import { stub } from 'sinon';
 import * as sinonChai from 'sinon-chai';
-import { setPassword } from '../../../../../src/client/components/loginForm/actions/setPassword';
+import { setPassword } from '../../../../../src/client/components/loginForm/actions';
 
 use(sinonChai);
 

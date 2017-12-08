@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { toggleRegister } from '../../../../../src/client/components/loginForm/actions/toggleRegister';
+import { toggleRegister } from '../../../../../src/client/components/loginForm/actions';
 
 describe('client.components.loginForm.actions.toggleRegister', () => {
   let state;

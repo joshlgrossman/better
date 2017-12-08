@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { setError } from '../../../../../src/client/components/loginForm/actions/setError';
+import { setError } from '../../../../../src/client/components/loginForm/actions';
 
 describe('client.components.loginForm.actions.setError', () => {
   let state;

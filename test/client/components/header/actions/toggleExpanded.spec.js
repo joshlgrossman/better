@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { toggleExpanded } from '../../../../../src/client/components/header/actions/toggleExpanded';
+import { toggleExpanded } from '../../../../../src/client/components/header/actions';
 
 describe('client.components.header.actions.toggleExpanded', () => {
   let state;

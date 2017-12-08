@@ -2,7 +2,7 @@ import { expect, use } from 'chai';
 import { stub, match } from 'sinon';
 import * as moxios from 'moxios';
 import * as sinonChai from 'sinon-chai';
-import { login } from '../../../../../src/client/components/loginForm/actions/login';
+import { login } from '../../../../../src/client/components/loginForm/actions';
 
 use(sinonChai);
 
