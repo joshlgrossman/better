@@ -1,9 +1,12 @@
 {
   "cSpell.ignoreWords": [
     "inversify",
+    "promisify",
     "injectable",
     "moxios",
     "minlength",
-    "maxlength"
+    "maxlength",
+    "typeof",
+    "eqeqeq"
   ]
 }
