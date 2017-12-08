@@ -6,15 +6,19 @@ describe('client.components.loginForm.actions.setUsername', () => {
 
   beforeEach(() => {
     state = {
-      username: null,
+      data: {
+        username: null
+      },
       something: 'else'
     };
   });
 
   it('should set the username', () => {
-    const result = setUsername(state)('test');
+    const result = setUsername(state, { validateForm: a => a })('test');
     expect(result).to.deep.equal({
-      username: 'test',
+      data: {
+        username: 'test'
+      },
       something: 'else'
     });
   });

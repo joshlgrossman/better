@@ -28,7 +28,7 @@ describe('client.components.loginForm.actions.login', () => {
   describe('when successful', () => {
     it('should set the user and location', done => {
       const data = { username: 'test', password: 'pw' };
-      login(data, actions)(effects);
+      login({ data }, actions)(effects);
 
       moxios.wait(async () => {
         const req = moxios.requests.mostRecent();
@@ -57,7 +57,7 @@ describe('client.components.loginForm.actions.login', () => {
   describe('when unsuccessful', () => {
     it('should set the error message', done => {
       const data = { username: 'wrong', password: 'pw' };
-      login(data, actions)(effects);
+      login({ data }, actions)(effects);
 
       moxios.wait(async () => {
         const req = moxios.requests.mostRecent();

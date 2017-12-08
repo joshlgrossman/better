@@ -6,15 +6,19 @@ describe('client.components.loginForm.actions.setPassword', () => {
 
   beforeEach(() => {
     state = {
-      password: null,
+      data: {
+        password: null
+      },
       something: 'else'
     };
   });
 
   it('should set the password', () => {
-    const result = setPassword(state)('test');
+    const result = setPassword(state, { validateForm: a => a })('test');
     expect(result).to.deep.equal({
-      password: 'test',
+      data: {
+        password: 'test'
+      },
       something: 'else'
     });
   });
