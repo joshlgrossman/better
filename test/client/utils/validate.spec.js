@@ -31,7 +31,7 @@ describe('client.utils.validate', () => {
       }
     };
 
-    validator = validate(schema);
+    validator = validate(schema)();
   });
 
   describe('when field is pristine', () => {
