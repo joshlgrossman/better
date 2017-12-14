@@ -17,13 +17,13 @@ export class UsersService {
         const token = await sign(user.username, jwtSecret);
 
         return {
-          ...user,
+          ...user.toObject(),
           token
         };
       }
-    } catch {}
-
-    return null;
+    } catch {
+      return null;
+    }
   }
 
   async register(username, password) {
@@ -32,7 +32,7 @@ export class UsersService {
       const token = await sign(user.username, jwtSecret);
 
       return {
-        ...user,
+        ...user.toObject(),
         token
       };
     } catch {
@@ -42,7 +42,9 @@ export class UsersService {
 
   async list() {
     try {
-      return await User.model.find();
+      const user = await User.model.find();
+
+      return user.toObject();
     } catch {
       return [];
     }
@@ -50,7 +52,9 @@ export class UsersService {
 
   async get(username) {
     try {
-      return await User.model.findOne({ username });
+      const user = await User.model.findOne({ username });
+
+      return user.toObject();
     } catch {
       return null;
     }

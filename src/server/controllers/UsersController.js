@@ -1,4 +1,4 @@
-import { JsonController, Get, Post, Params, Body } from 'routing-controllers';
+import { JsonController, Get, Post, Params, Body, NotFoundError, UnauthorizedError } from 'routing-controllers';
 import { injectable, inject } from 'inversify';
 
 import { UsersService } from '../services';
@@ -15,24 +15,32 @@ export class UsersController {
   @Get('/users/:username')
   async get(@Params() params) {
     const user = await this.usersService.get(params.username);
-    return this.usersAssembler.assemble(user);
+
+    if (user) return this.usersAssembler.assemble(user);
+    else throw new NotFoundError('User was not found');
   }
 
   @Get('/users')
   async list() {
     const users = await this.usersService.list();
-    return users.map(user => this.usersAssembler.assemble(user));
+
+    if (users) return users.map(user => this.usersAssembler.assemble(user));
+    else throw new NotFoundError('No users were found');
   }
 
   @Post('/users/new')
   async register(@Body() body) {
     const user = await this.usersService.register(body.username, body.password);
-    return this.usersAssembler.assemble(user);
+
+    if (user) return this.usersAssembler.assemble(user);
+    else throw new UnauthorizedError('Could not register user');
   }
 
   @Post('/users/:username')
   async login(@Params() params, @Body() body) {
     const user = await this.usersService.login(params.username, body.password);
-    return this.usersAssembler.assemble(user);
+
+    if (user) return this.usersAssembler.assemble(user);
+    else throw new UnauthorizedError('Incorrect username or password');
   }
 }

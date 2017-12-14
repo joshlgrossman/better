@@ -6,7 +6,8 @@ export class UsersAssembler {
     return {
       username: user.username,
       credits: user.credits,
-      messages: user.messages
+      messages: user.messages,
+      token: user.token
     };
   }
 }
