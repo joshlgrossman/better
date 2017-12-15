@@ -22,7 +22,8 @@ mongoose.connect(config.mongoDb, { useMongoClient: true });
 useContainer(container);
 createExpressServer({
   controllers: values(controllers),
-  authorizationChecker: utils.authorizationChecker
+  authorizationChecker: utils.authorizationChecker,
+  currentUserChecker: utils.currentUserChecker
 })
   .use('/', static(join(__dirname, '../../dist/client')))
-  .listen(8080);
+  .listen(config.port);
