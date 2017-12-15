@@ -11,6 +11,7 @@ import * as controllers from './controllers';
 import * as services from './services';
 import * as assemblers from './assemblers';
 import * as config from './config';
+import * as utils from './utils';
 
 const container = new Container();
 flow(map(values), flatten, each(i => container.bind(i).toSelf()))([controllers, services, assemblers]);
@@ -19,6 +20,9 @@ mongoose.Promise = global.Promise;
 mongoose.connect(config.mongoDb, { useMongoClient: true });
 
 useContainer(container);
-createExpressServer({ controllers: values(controllers) })
+createExpressServer({
+  controllers: values(controllers),
+  authorizationChecker: utils.authorizationChecker
+})
   .use('/', static(join(__dirname, '../../dist/client')))
   .listen(8080);
