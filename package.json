@@ -49,6 +49,7 @@
     "@types/date-fns": "^2.6.0",
     "@types/express": "^4.0.39",
     "@types/grunt": "^0.4.22",
+    "@types/jsonwebtoken": "^7.2.5",
     "@types/lodash": "^4.14.80",
     "@types/mocha": "^2.2.43",
     "@types/mongoose": "^4.7.28",
