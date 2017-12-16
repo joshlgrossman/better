@@ -10,6 +10,7 @@ describe('server.controllers.UsersController', () => {
   let usersService;
   let usersAssembler;
   let controller;
+  let resp;
 
   beforeEach(() => {
     usersService = {
@@ -27,73 +28,77 @@ describe('server.controllers.UsersController', () => {
   });
 
   describe('when getting a specific user', () => {
+    beforeEach(async () => {
+      resp = await controller.get({ username: 'get' });
+    });
+
     it('should query for that user', () => {
-      controller.get({ username: 'get' });
       expect(usersService.get).to.have.been.calledWith('get');
     });
 
-    it('should assemble the results', async () => {
-      await controller.get({ username: 'get' });
+    it('should assemble the results', () => {
       expect(usersAssembler.assemble).to.have.been.calledWith(
         match({ get: 'test' }));
     });
 
-    it('should return the assembled results', async () => {
-      const resp = await controller.get({ username: 'get' });
+    it('should return the assembled results', () => {
       expect(resp).to.equal('assembled');
     });
   });
 
   describe('when listing all users', () => {
+    beforeEach(async () => {
+      resp = await controller.list();
+    });
+    
     it('should get all users', () => {
-      controller.list();
       expect(usersService.list).to.have.been.called;
     });
 
-    it('should assemble the results', async () => {
-      await controller.list();
+    it('should assemble the results', () => {
       expect(usersAssembler.assemble).to.have.been.calledWith(
         match({ list: 'test' }));
     });
 
-    it('should return the assembled results', async () => {
-      const resp = await controller.list();
+    it('should return the assembled results', () => {
       expect(resp).to.deep.equal(['assembled']);
     });
   });
 
   describe('when registering a new user', () => {
+    beforeEach(async () => {
+      resp = await controller.register({ username: 'hello', password: 'world' });
+    });
+
     it('should register the user', () => {
-      controller.register({ username: 'hello', password: 'world' });
       expect(usersService.register).to.have.been.calledWith('hello', 'world');
     });
 
-    it('should assemble the results', async () => {
-      await controller.register({ username: 'hello', password: 'world' });
+    it('should assemble the results', () => {
       expect(usersAssembler.assemble).to.have.been.calledWith(
         match({ register: 'test' }));
     });
 
-    it('should return the assembled results', async () => {
-      const resp = await controller.register({ username: 'hello', password: 'world' });
+    it('should return the assembled results', () => {
       expect(resp).to.equal('assembled');
     });
   });
 
   describe('when logging in a user', () => {
+    beforeEach(async () => {
+      resp = await controller.login({ username: 'hello' }, { password: 'world' });
+    });
+
     it('should attempt to login the user', () => {
-      controller.login({ username: 'hello' }, { password: 'world' });
       expect(usersService.login).to.have.been.calledWith('hello', 'world');
     });
 
-    it('should assemble the results', async () => {
-      await controller.login({ username: 'hello' }, { password: 'world' });
+    it('should assemble the results', () => {
       expect(usersAssembler.assemble).to.have.been.calledWith(
         match({ login: 'test' }));
     });
 
-    it('should return the assembled results', async () => {
-      const resp = await controller.login({ username: 'hello' }, { password: 'world' });
+    it('should return the assembled results', () => {
       expect(resp).to.equal('assembled');
     });
   });
