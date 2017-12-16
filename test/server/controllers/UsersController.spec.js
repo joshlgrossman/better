@@ -32,21 +32,15 @@ describe('server.controllers.UsersController', () => {
       expect(usersService.get).to.have.been.calledWith('get');
     });
 
-    it('should assemble the results', done => {
-      controller.get({ username: 'get' })
-        .then(() => {
-          expect(usersAssembler.assemble).to.have.been.calledWith(
-            match({ get: 'test' }));
-          done();
-        });
+    it('should assemble the results', async () => {
+      await controller.get({ username: 'get' });
+      expect(usersAssembler.assemble).to.have.been.calledWith(
+        match({ get: 'test' }));
     });
 
-    it('should return the assembled results', done => {
-      controller.get({ username: 'get' })
-        .then(resp => {
-          expect(resp).to.equal('assembled');
-          done();
-        })
+    it('should return the assembled results', async () => {
+      const resp = await controller.get({ username: 'get' });
+      expect(resp).to.equal('assembled');
     });
   });
 
@@ -56,21 +50,15 @@ describe('server.controllers.UsersController', () => {
       expect(usersService.list).to.have.been.called;
     });
 
-    it('should assemble the results', done => {
-      controller.list()
-        .then(() => {
-          expect(usersAssembler.assemble).to.have.been.calledWith(
-            match({ list: 'test' }));
-          done();
-        });
+    it('should assemble the results', async () => {
+      await controller.list();
+      expect(usersAssembler.assemble).to.have.been.calledWith(
+        match({ list: 'test' }));
     });
 
-    it('should return the assembled results', done => {
-      controller.list()
-        .then(resp => {
-          expect(resp).to.deep.equal(['assembled']);
-          done();
-        });
+    it('should return the assembled results', async () => {
+      const resp = await controller.list();
+      expect(resp).to.deep.equal(['assembled']);
     });
   });
 
@@ -80,21 +68,15 @@ describe('server.controllers.UsersController', () => {
       expect(usersService.register).to.have.been.calledWith('hello', 'world');
     });
 
-    it('should assemble the results', done => {
-      controller.register({ username: 'hello', password: 'world' })
-        .then(() => {
-          expect(usersAssembler.assemble).to.have.been.calledWith(
-            match({ register: 'test' }));
-          done();
-        });
+    it('should assemble the results', async () => {
+      await controller.register({ username: 'hello', password: 'world' });
+      expect(usersAssembler.assemble).to.have.been.calledWith(
+        match({ register: 'test' }));
     });
 
-    it('should return the assembled results', done => {
-      controller.register({ username: 'hello', password: 'world' })
-        .then(resp => {
-          expect(resp).to.equal('assembled');
-          done();
-        });
+    it('should return the assembled results', async () => {
+      const resp = await controller.register({ username: 'hello', password: 'world' });
+      expect(resp).to.equal('assembled');
     });
   });
 
@@ -104,21 +86,15 @@ describe('server.controllers.UsersController', () => {
       expect(usersService.login).to.have.been.calledWith('hello', 'world');
     });
 
-    it('should assemble the results', done => {
-      controller.login({ username: 'hello' }, { password: 'world' })
-        .then(() => {
-          expect(usersAssembler.assemble).to.have.been.calledWith(
-            match({ login: 'test' }));
-          done();
-        });
+    it('should assemble the results', async () => {
+      await controller.login({ username: 'hello' }, { password: 'world' });
+      expect(usersAssembler.assemble).to.have.been.calledWith(
+        match({ login: 'test' }));
     });
 
-    it('should return the assembled results', done => {
-      controller.login({ username: 'hello' }, { password: 'world' })
-        .then(resp => {
-          expect(resp).to.equal('assembled');
-          done();
-        });
+    it('should return the assembled results', async () => {
+      const resp = await controller.login({ username: 'hello' }, { password: 'world' });
+      expect(resp).to.equal('assembled');
     });
   });
 
