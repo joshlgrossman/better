@@ -7,6 +7,7 @@
   "author": "",
   "license": "ISC",
   "scripts": {
+    "format": "node ./node_modules/.bin/grunt format",
     "test": "node ./node_modules/.bin/grunt test",
     "test:client": "node ./node_modules/.bin/grunt test:client",
     "test:server": "node ./node_modules/.bin/grunt test:server",

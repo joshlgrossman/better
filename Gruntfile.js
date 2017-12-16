@@ -165,4 +165,9 @@ module.exports = grunt => {
     'webpack:dist'
   ]);
 
+  grunt.registerTask('format', [
+    'prettier:client',
+    'prettier:server'
+  ]);
+
 };
