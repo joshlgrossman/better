@@ -42,9 +42,9 @@ export class UsersService {
 
   async list() {
     try {
-      const user = await User.model.find();
+      const users = await User.model.find();
 
-      return user.toObject();
+      return users.map(user => user.toObject());
     } catch {
       return [];
     }
