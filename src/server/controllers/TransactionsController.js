@@ -1,12 +1,15 @@
 import { JsonController, Get, Post, Authorized, CurrentUser, Body } from 'routing-controllers';
 import { injectable, inject } from 'inversify';
-import { TransactionsService } from '../services/TransactionsService';
+
+import { TransactionsService } from '../services';
+import { TransactionsAssembler } from '../assemblers';
 
 @JsonController()
 @injectable()
 export class TransactionsController {
-  constructor(@inject(TransactionsService) transactionService) {
-    this.transactionService = transactionService;
+  constructor(@inject(TransactionsService) transactionsService, @inject(TransactionsAssembler) transactionsAssembler) {
+    this.transactionsService = transactionsService;
+    this.transactionsAssembler = transactionsAssembler;
   }
 
   @Get('/transactions')
@@ -14,7 +17,9 @@ export class TransactionsController {
     @CurrentUser({ required: true })
     user
   ) {
-    return this.transactionService.list(user);
+    const transactions = await this.transactionsService.list(user);
+
+    return transactions.map(transaction => this.transactionsAssembler.assemble(transaction));
   }
 
   @Post('/transactions/new')
@@ -23,6 +28,8 @@ export class TransactionsController {
     user,
     @Body() body
   ) {
-    return this.transactionService.create(user, body.to, body.amount);
+    const transaction = await this.transactionsService.create(user, body.to, body.amount);
+
+    return this.transactionsAssembler.assemble(transaction);
   }
 }
