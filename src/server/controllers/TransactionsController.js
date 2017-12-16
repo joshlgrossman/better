@@ -28,7 +28,7 @@ export class TransactionsController {
     user,
     @Body() body
   ) {
-    const transaction = await this.transactionsService.create(user, body.to, body.amount);
+    const transaction = await this.transactionsService.create(user.username, body.to, body.amount);
 
     return this.transactionsAssembler.assemble(transaction);
   }
