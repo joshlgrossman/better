@@ -23,7 +23,7 @@ describe('client.components.loginForm.actions.setUsername', () => {
   });
 
   it('should set the username', () => {
-    const result = setUsername(state, actions)('test');
+    const result = setUsername('test')(state, actions);
     expect(result).to.deep.equal({
       data: {
         username: 'test'

@@ -12,7 +12,7 @@ describe('client.components.loginForm.actions.setError', () => {
   });
 
   it('should set the error', () => {
-    const result = setError(state)('test');
+    const result = setError('test')(state);
     expect(result).to.deep.equal({
       errors: ['test'],
       something: 'else'

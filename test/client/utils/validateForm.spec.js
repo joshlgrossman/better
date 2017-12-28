@@ -5,7 +5,7 @@ import { validateForm } from '../../../src/client/utils';
 
 use(sinonChai);
 
-describe('client.utils.validate', () => {
+describe('client.utils.validateForm', () => {
   
   let state;
   let validator;
@@ -31,7 +31,7 @@ describe('client.utils.validate', () => {
       }
     };
 
-    validator = validateForm(schema)();
+    validator = validateForm(schema);
   });
 
   describe('when field is pristine', () => {

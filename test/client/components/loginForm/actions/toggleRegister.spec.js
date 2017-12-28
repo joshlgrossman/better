@@ -13,7 +13,7 @@ describe('client.components.loginForm.actions.toggleRegister', () => {
   describe('when register is false', () => {
     it('should set register to true', () => {
       state.isRegister = false;
-      const result = toggleRegister(state);
+      const result = toggleRegister()(state);
       expect(result).to.deep.equal({
         isRegister: true,
         something: 'else'
@@ -24,7 +24,7 @@ describe('client.components.loginForm.actions.toggleRegister', () => {
   describe('when register is true', () => {
     it('should set register to false', () => {
       state.isRegister = true;
-      const result = toggleRegister(state);
+      const result = toggleRegister()(state);
       expect(result).to.deep.equal({
         isRegister: false,
         something: 'else'

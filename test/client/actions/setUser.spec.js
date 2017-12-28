@@ -12,7 +12,7 @@ describe('client.actions.setUser', () => {
   });
 
   it('should set the user', () => {
-    const result = setUser(state)('test');
+    const result = setUser('test')(state);
     expect(result).to.deep.equal({
       user: 'test',
       something: 'else'

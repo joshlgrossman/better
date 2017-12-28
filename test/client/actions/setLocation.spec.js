@@ -12,7 +12,7 @@ describe('client.actions.setLocation', () => {
   });
 
   it('should set the location', () => {
-    const result = setLocation(state)('b');
+    const result = setLocation('b')(state);
     expect(result).to.deep.equal({
       location: 'b',
       something: 'else'

@@ -23,7 +23,7 @@ describe('client.components.loginForm.actions.setPassword', () => {
   });
 
   it('should set the password', () => {
-    const result = setPassword(state, actions)('test');
+    const result = setPassword('test')(state, actions);
     expect(result).to.deep.equal({
       data: {
         password: 'test'

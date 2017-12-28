@@ -13,7 +13,7 @@ describe('client.components.header.actions.toggleExpanded', () => {
   describe('when expanded is false', () => {
     it('should set expanded to true', () => {
       state.isExpanded = false;
-      const result = toggleExpanded(state);
+      const result = toggleExpanded()(state);
       expect(result).to.deep.equal({
         isExpanded: true,
         something: 'else'
@@ -24,7 +24,7 @@ describe('client.components.header.actions.toggleExpanded', () => {
   describe('when expanded is true', () => {
     it('should set expanded to false', () => {
       state.isExpanded = true;
-      const result = toggleExpanded(state);
+      const result = toggleExpanded()(state);
       expect(result).to.deep.equal({
         isExpanded: false,
         something: 'else'
