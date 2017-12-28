@@ -1,1 +1,1 @@
-export const setLocation = state => location => ({ ...state, location });
+export const setLocation = location => state => ({ ...state, location });

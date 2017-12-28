@@ -13,7 +13,7 @@ export class Transaction {
     try {
       const from = await User.model.findOne({ username: this.from });
       const to = await User.model.findOne({ username: this.to });
-      
+
       if (from.credits < this.amount) throw new Error('Not enough credits');
 
       from.credits -= this.amount;

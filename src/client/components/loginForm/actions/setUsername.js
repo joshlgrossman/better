@@ -1,4 +1,4 @@
-export const setUsername = (state, actions) => username =>
+export const setUsername = username => (state, actions) =>
   actions.validate({
     ...state,
     data: {

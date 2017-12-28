@@ -1,1 +1,1 @@
-export const setError = state => error => ({ ...state, errors: [error] });
+export const setError = error => state => ({ ...state, errors: [error] });

@@ -1,5 +1,5 @@
 export function validateForm(schema) {
-  return () => state => {
+  return state => {
     const invalidFields = Object.entries(state.data).reduce(
       (errors, [key, value]) =>
         schema[key].check(value, state.data) ? errors : [...errors, { message: schema[key].message, value }],

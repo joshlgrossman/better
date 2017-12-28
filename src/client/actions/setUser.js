@@ -1,1 +1,1 @@
-export const setUser = state => user => ({ ...state, user });
+export const setUser = user => state => ({ ...state, user });

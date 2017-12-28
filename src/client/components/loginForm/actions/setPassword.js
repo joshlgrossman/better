@@ -1,4 +1,4 @@
-export const setPassword = (state, actions) => password =>
+export const setPassword = password => (state, actions) =>
   actions.validate({
     ...state,
     data: {
