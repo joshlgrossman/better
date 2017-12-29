@@ -8,6 +8,7 @@
     "minlength",
     "maxlength",
     "typeof",
-    "eqeqeq"
+    "eqeqeq",
+    "onupdate"
   ]
 }
