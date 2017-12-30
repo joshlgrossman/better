@@ -9,6 +9,7 @@
     "maxlength",
     "typeof",
     "eqeqeq",
-    "onupdate"
+    "onupdate",
+    "oncreate"
   ]
 }
