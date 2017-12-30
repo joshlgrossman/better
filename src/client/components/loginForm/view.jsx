@@ -1,5 +1,6 @@
 import { h } from 'hyperapp';
 
+import { focusElement } from '../../utils';
 import * as styles from './styles.less';
 
 export const LoginForm = ({ state, actions, effects }) => (
@@ -10,6 +11,7 @@ export const LoginForm = ({ state, actions, effects }) => (
         type="text"
         value={state.data.username}
         oninput={e => actions.setUsername(e.target.value)}
+        oncreate={focusElement}
       />
       <input
         placeholder="password"
