@@ -1,10 +1,11 @@
-import * as LoginForm from '../components/loginForm/state';
-import * as Header from '../components/header/state';
+import * as components from '../components';
+
 import * as user from './user';
 
 export const state = {
   location: 'login',
   user,
-  LoginForm,
-  Header
+  ...Object.keys(components)
+    .map(key => ({ [key]: components[key].state }))
+    .reduce((result, component) => ({ ...result, ...component }), {})
 };

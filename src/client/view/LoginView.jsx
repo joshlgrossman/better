@@ -1,6 +1,6 @@
 import { h } from 'hyperapp';
 
-import { LoginForm } from '../components/loginForm/view';
+import { LoginForm } from '../components/loginForm';
 
 export const LoginView = (state, actions) => (
   <div>

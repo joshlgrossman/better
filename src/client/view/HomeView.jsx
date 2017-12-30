@@ -1,6 +1,6 @@
 import { h } from 'hyperapp';
 
-import { Header } from '../components/header/view';
+import { Header } from '../components/header';
 
 export const HomeView = (state, actions) => (
   <div>

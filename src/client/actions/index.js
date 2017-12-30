@@ -1,5 +1,4 @@
-import * as LoginForm from '../components/loginForm/actions';
-import * as Header from '../components/header/actions';
+import * as components from '../components';
 
 import { setUser } from './setUser';
 import { setLocation } from './setLocation';
@@ -16,6 +15,7 @@ export const actions = {
   setLocation,
   saveState,
   loadState,
-  LoginForm,
-  Header
+  ...Object.keys(components)
+    .map(key => ({ [key]: components[key].actions }))
+    .reduce((result, component) => ({ ...result, ...component }), {})
 };
