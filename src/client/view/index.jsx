@@ -11,7 +11,7 @@ const views = {
 };
 
 export const view = (state, actions) => (
-  <div {...styles} onupdate={actions.saveState}>
+  <div {...styles} onupdate={actions.saveState} oncreate={actions.loadState}>
     {views[state.location](state, actions)}
   </div>
 );
