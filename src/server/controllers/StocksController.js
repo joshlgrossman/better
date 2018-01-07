@@ -1,4 +1,4 @@
-import { JsonController, Get } from 'routing-controllers';
+import { JsonController, Get, Params } from 'routing-controllers';
 import { injectable, inject } from 'inversify';
 
 import { StocksService } from '../services';
@@ -25,5 +25,4 @@ export class StocksController {
 
     return stocks.map(stock => this.stocksAssembler.assemble(stock));
   }
-
 }

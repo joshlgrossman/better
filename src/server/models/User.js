@@ -8,7 +8,7 @@ import { Message } from './Message';
   password: { type: String, required: true },
   credits: { type: Number, default: 0 },
   messages: { type: [Message.schema], required: false },
-  shares: [ { symbol: String, quantity: Number } ]
+  shares: [{ symbol: String, quantity: Number }]
 })
 export class User {
   @Hook('pre', 'save')

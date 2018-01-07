@@ -10,12 +10,20 @@ export const Quote = ({ input, effects }) => (
       <div className="owned">{input.stock.sharesOwned}</div>
     </div>
     <div className="controls">
-      {input.stock.price < input.user.credits
-        ? <button className="buy" onclick={() => effects.buyShare(input.stock)}>Buy</button>
-        : false}
-      {input.stock.sharesOwned > 0
-        ? <button className="sell" onclick={() => effects.sellShare(input.stock)}>Sell</button>
-        : false}
+      {input.stock.price < input.user.credits ? (
+        <button className="buy" onclick={() => effects.buyShare(input.stock)}>
+          Buy
+        </button>
+      ) : (
+        false
+      )}
+      {input.stock.sharesOwned > 0 ? (
+        <button className="sell" onclick={() => effects.sellShare(input.stock)}>
+          Sell
+        </button>
+      ) : (
+        false
+      )}
     </div>
   </div>
 );
