@@ -1,4 +1,4 @@
-import { JsonController, Get, Params } from 'routing-controllers';
+import { JsonController, Get, Post, Params, CurrentUser } from 'routing-controllers';
 import { injectable, inject } from 'inversify';
 
 import { StocksService } from '../services';
@@ -24,5 +24,16 @@ export class StocksController {
     const stocks = await this.stocksService.list();
 
     return stocks.map(stock => this.stocksAssembler.assemble(stock));
+  }
+
+  @Post('/stocks/:symbol')
+  async buy(
+    @CurrentUser({ required: true })
+    user,
+    @Params() params
+  ) {
+    const stock = await this.stocksService.buy(params.symbol, user.username);
+
+    return this.stocksAssembler.assemble(stock);
   }
 }

@@ -1,6 +1,6 @@
 import { injectable } from 'inversify';
 
-import { Transaction } from '../models';
+import { Transaction, User } from '../models';
 
 @injectable()
 export class TransactionsService {
@@ -16,9 +16,20 @@ export class TransactionsService {
 
   async create(from, to, amount) {
     try {
+      const fromUser = await User.model.findOne({ username: from });
+      const toUser = await User.model.findOne({ username: to });
+
+      if (fromUser.credits < amount) throw new Error('Not enough credits');
+
+      fromUser.credits -= amount;
+      toUser.credits += amount;
+
+      await fromUser.save();
+      await toUser.save();
+
       const transaction = await Transaction.model.create({ from, to, amount });
 
-      return transaction;
+      return transaction.toObject();
     } catch {
       return null;
     }
