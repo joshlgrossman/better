@@ -7,7 +7,8 @@ export class UsersAssembler {
       username: user.username,
       credits: user.credits,
       messages: user.messages,
-      token: user.token
+      token: user.token,
+      shares: user.shares
     };
   }
 }
