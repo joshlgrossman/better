@@ -15,7 +15,8 @@ describe('server.controllers.StocksController', () => {
   beforeEach(() => {
     stocksService = {
       get: stub().callsFake(() => Promise.resolve({ get: 'test' })),
-      list: stub().callsFake(() => Promise.resolve([{ list: 'test' }]))
+      list: stub().callsFake(() => Promise.resolve([{ list: 'test' }])),
+      buy: stub().callsFake(() => Promise.resolve({ buy: 'test' }))
     };
 
     stocksAssembler = {
@@ -40,7 +41,7 @@ describe('server.controllers.StocksController', () => {
     });
 
     it('should return the assembled results', () => {
-      expect(resp).to.deep.equal('assembled');
+      expect(resp).to.equal('assembled');
     });
   });
 
@@ -60,6 +61,25 @@ describe('server.controllers.StocksController', () => {
 
     it('should return the assembled results', () => {
       expect(resp).to.deep.equal(['assembled']);
+    });
+  });
+
+  describe('when buying a stock', () => {
+    beforeEach(async () => {
+      resp = await controller.buy({ username: 'test' }, { symbol: 'TEST' });
+    });
+
+    it('should buy the stock', () => {
+      expect(stocksService.buy).to.have.been.calledWith('TEST', 'test');
+    });
+
+    it('should assemble the results', () => {
+      expect(stocksAssembler.assemble).to.have.been.calledWith(
+        match({ buy: 'test' }));
+    });
+
+    it('should return the assembled results', () => {
+      expect(resp).to.equal('assembled');
     });
   });
 
