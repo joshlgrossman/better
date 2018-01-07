@@ -1,8 +1,8 @@
 import { Model, Hook } from './decorators';
 
 @Model({
-  symbol: String,
-  price: Number,
+  symbol: { type: String, required: true },
+  price: { type: Number, required: true },
   history: [Number],
   description: String
 })
