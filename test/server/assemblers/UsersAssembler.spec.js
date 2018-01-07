@@ -16,6 +16,7 @@ describe('server.assemblers.UsersAssembler', () => {
         password: 'world',
         credits: 10,
         messages: [],
+        shares: [],
         somethingElse: 'blah',
         token: 'abcd'
       });
@@ -24,7 +25,8 @@ describe('server.assemblers.UsersAssembler', () => {
         username: 'hello',
         credits: 10,
         messages: [],
-        token: 'abcd'
+        token: 'abcd',
+        shares: []
       });
     });
   });
