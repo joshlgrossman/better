@@ -1,0 +1,56 @@
+@import '../../styles/variables';
+
+:host {
+  display: flex;
+  justify-content: space-around;
+
+  .loader {
+    display: none;
+
+    &.shown {
+      display: flex;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      background-color: @blue;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-name: dot-animation;
+      border-radius: 100%;
+    }
+
+    .dot-three {
+      animation-delay: -250ms;
+    }
+
+    .dot-two {
+      animation-delay: -500ms;
+    }
+
+    .dot-one {
+      animation-delay: -750ms;
+    }
+  }
+
+  @keyframes dot-animation {
+    0% { 
+      opacity: 0.5;
+      transform: scale(0.6) translateY(0);
+    }
+    40% { 
+      opacity: 1;
+      transform: scale(1) translateY(-2px);
+    }
+    80% {
+      opacity: 0.5;
+      transform: scale(0.6) translateY(0);
+    }
+    100% {
+      opacity: 0.5;
+      transform: scale(0.6) translateY(0);
+    }
+  }
+
+}
